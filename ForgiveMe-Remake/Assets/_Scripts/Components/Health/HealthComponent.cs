@@ -1,5 +1,4 @@
 using System;
-using _Scripts.EnemyScripts.UIEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +10,7 @@ namespace _Scripts.Components.Health
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private bool _notifyUI;
-        [SerializeField] private HpBar _hpBar;
+       
         private int _maxHp;
 
         private void Start()
@@ -27,7 +26,6 @@ namespace _Scripts.Components.Health
                 _onDie?.Invoke();
             if (damage >= 0) throw new Exception("Damage delta is more than zero");
             _onDamage?.Invoke();
-            if (_notifyUI) _hpBar.SetBar(_maxHp, _health);
         }
     }
 }

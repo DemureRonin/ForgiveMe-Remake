@@ -94,9 +94,8 @@ namespace _Scripts.PlayerScripts
 
             var airResistance = Grounded ? 1 : _airMoveResistance;
             var velocity = new Vector3(_movementDirection.x, 0, _movementDirection.z) * (_moveSpeed * airResistance);
-            Vector3 projection;
             _rigidbody.useGravity = true;
-            if (_groundCheck.InOnSlope(_maxAngle, _movementDirection, out projection))
+            if (_groundCheck.InOnSlope(_maxAngle, _movementDirection, out var projection))
             {
                 _rigidbody.useGravity = false;
                 velocity = projection * (_moveSpeed * airResistance);
